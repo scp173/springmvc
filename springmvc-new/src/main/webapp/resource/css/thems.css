@@ -1,0 +1,25 @@
+body{text-align:center;	font-family:"宋体";text-align:center;	font-size:12px;color:#c3c8cd;}
+/*头部*/
+.header{ width:100%; height:50px; margin:0px auto; background:#66677c; min-width:1000px; box-shadow:0px 0px 3px #666; border-bottom:1px solid #ccc;}
+.header .logo{width:200px; height:50px; position:absolute; left:2%; top:0px; text-align:center;}
+.header .logo img.cimg{ width:40px; height:40px;
+    margin-left: 10px;margin-top:3px;float:left;}
+.header .logo label.cusl{font-size:20px; color:#c3c8cd; font-weight:bold; line-height:50px;width:100px; height:50px; float:left; margin-left:15px; margin-top:0px;display:inline-block;}
+.header .infoNav{ width:500px; height:50px; position:absolute;top: 0px; left: 30%; text-align:center;}
+.header .infoNav li{ display:inline-block; zoom:1; width:auto; margin:0px; padding:0px 15px; height:50px; line-height:50px;}
+.header .infoNav li a{ font-size:14px; color:#c3c8cd; font-weight:bold;}
+.header .infoNav li.now , .header .infoNav li:hover{ background:#9274b7;}
+.header .infoNav li.now a , .header .infoNav li:hover a{ color:#FFF;}
+
+.header .logNav{ width:150px; height:50px; position:absolute;top: 0px; right: 2%; text-align:center;}
+.header .logNav li{ display:inline-block; zoom:1; width:55px; margin:0px; padding:0px 0px; height:50px; line-height:50px;}
+.header .logNav li{ font-size:14px; color:#c3c8cd; font-weight:bold;}
+.header .logNav li.now , .header .logNav li:hover{ background:#2fa0ec;}
+.header .logNav li.now a , .header .logNav li:hover a{ color:#FFF;}
+.header .userinfo{ width:300px; height:50px; position:absolute;top: 0px; right: 5%; text-align:center;}
+.header .userinfo li{ display:inline-block; zoom:1; width:55px; margin:0px; padding:0px 0px; height:50px; line-height:50px;}
+.header .userinfo li{ font-size:14px; color:#c3c8cd; font-weight:bold;}
+
+.yellow{ color:#C1A50D;}
+/*底部*/
+
