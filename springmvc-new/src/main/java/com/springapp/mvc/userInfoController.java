@@ -17,7 +17,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 public class userInfoController {
 
     @RequestMapping(value = "/main", method = RequestMethod.POST)
-    public ResponseBody testData(String username, String password
+    public void testData(String username, String password
                                        ,HttpServletRequest request
                                        , HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -39,7 +39,6 @@ public class userInfoController {
         pw.flush();
         pw.close();
 
-        return null;
     }
 
 

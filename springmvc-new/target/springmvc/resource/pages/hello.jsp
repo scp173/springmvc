@@ -8,7 +8,8 @@
     <script type="text/javascript" src="resource/js/jquery.min.js"></script>
     <script type="text/javascript" src="resource/js/jquery.form.js"></script>
     <link rel="stylesheet" type="text/css" href="resource/css/thems.css">
-    <link rel="stylesheet" href="resource/css/common.css"/>
+        <link rel="stylesheet" type="text/css" href="resource/css/button.css">
+        <link rel="stylesheet" href="resource/css/common.css"/>
     <title>个人主页</title>
     <link rel="shortcut icon" href="http://img3.duitang.com/uploads/item/201605/10/20160510194857_Y5UMd.jpeg">
 
@@ -104,10 +105,12 @@
             dataType:"json",
             async:false,
             data:$( '#editForm').serialize(),
-            success: function(result) {
-                alert("success");
-                var form = document.getElementsByClassName("logNav");
-
+            success: function(data) {
+          //  alert("success");
+                $('#dialogBg').fadeOut(200,function(){
+                    $('#dialog').addClass('bounceOutUp').fadeOut();
+                });
+                document.body.removeChild(document.getElementById("logindiv"));
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 alert("faild");
@@ -131,10 +134,15 @@
             <li class="tmp" onclick="hf(4)"><a href="javascript:;">留言板</a></li>
             <li class="tmp" onclick="hf(5)"><a href="javascript:;">好友板</a></li>
         </ul>
-    <ul class="logNav">
-        <a href="javascript:;"> <li  id="loginBtn" class="bounceInDown">登录</li></a>
-        <a href="javascript:;"> <li onclick="register()">注册</li></a>
+    <ul class="logNav" id="logindiv">
+        <li  id="loginBtn" class="bounceInDown"><a href="javascript:;"> 登录</a></li>
+         <li class="bounceInDown" onclick="register()"><a href="javascript:;">注册</a></li>
     </ul>
+    <%--<ul class="userinfo" id="islogindiv">--%>
+        <%--<li  id="username" >用户昵称</li>--%>
+        <%--<li  onclick="logout()">退出登录</li>--%>
+    <%--</ul>--%>
+
 
 </div>
 <%--弹出登录狂视图--%>
@@ -148,12 +156,12 @@
         <ul class="editInfos">
             <li><label color="#ff0000">帐号：<input type="text" name="username" required value="username" class="ipt" /></label></li>
             <li><label color="#ff0000">密码：<input type="password" name="password" required value="password" class="ipt" /></label></li>
-            <li><input type="submit" value="确认提交" class="submitBtn" onclick="addUser()"/></li>
         </ul>
-
-
     </form>
+    <button class="button button-royal button-rounded button-small" onclick="addUser()">测试</button>
+
 </div>
+
 <%--完毕--%>
 </body>
 </html>
