@@ -5,20 +5,8 @@
 	margin:0;
 	padding:0
 }
-img{
-	max-width:100%;
-	height:auto;
-	width:auto;
-	-ms-interpolation-mode:bicubic;
-	vertical-align:middle
-}
-a,button,input{
-	-webkit-tap-highlight-color:rgba(255,0,0,0)
-}
-input{
-	border:0 none;
-	-webkit-appearance:none
-}
+
+
 ul,p{
 	padding:0;
 	margin:0

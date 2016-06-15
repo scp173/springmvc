@@ -25,9 +25,6 @@
              background: #66677c;         }
     </style>
     <link rel="stylesheet" href="resource/css/common.css"/>
-    <%--<link rel="stylesheet" type="text/css" href="resource/css/htmleaf-demo.css">--%>
-    <%--<link rel="stylesheet" href="resource/css/tabs-colorful.css">--%>
-
     <title>个人主页</title>
     <link rel="shortcut icon" href="http://img3.duitang.com/uploads/item/201605/10/20160510194857_Y5UMd.jpeg">
     <script type="text/javascript" src="resource/js/jquery.min.js"></script>

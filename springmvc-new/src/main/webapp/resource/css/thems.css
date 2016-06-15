@@ -1,6 +1,6 @@
 body{text-align:center;	font-family:"宋体";text-align:center;	font-size:12px;}
 /*头部*/
-.header{ width:100%; height:50px; margin:0px auto; background:#66677c; min-width:1000px; box-shadow:0px 0px 3px #666; border-bottom:1px solid #ccc;}
+.header{ width:100%; height:50px; margin:0px auto; background:#66677c; min-width:1000px; box-shadow:0px 0px 3px #666; border-bottom:0px solid #ccc;}
 .header .logo{width:200px; height:50px; position:absolute; left:2%; top:0px; text-align:center;}
 .header .logo img.cimg{ width:40px; height:40px;
     margin-left: 10px;margin-top:3px;float:left;}
@@ -20,9 +20,10 @@ body{text-align:center;	font-family:"宋体";text-align:center;	font-size:12px;}
 .yellow{ color:#C1A50D;}
 
 .header .userinfo{ width:200px; height:50px; position:absolute;top: 0px; right: 2%; text-align:center;}
-.header .userinfo li{ display:inline-block; zoom:1; width:100px; margin:0px; padding:0px 0px; height:50px; line-height:50px;}
-.header .userinfo li{ font-size:10px; color:#FFFFFF; font-weight:bold;}
-.header .userinfo li a{ font-size:14px; color:#c3c8cd; font-weight:bold;}
+.header .userinfo li{ display:inline-block; zoom:1; width:auto; margin:0px; padding:0px 10px; height:50px; line-height:50px;}
+.header .userinfo li{font-size:10px; color:#FFFFFF; }
+.header .userinfo li a{ font-size:14px; color:#c3c8cd; font-family:"微软雅黑","microsoft yahei";}
+.header .userinfo li#logout a:hover{ color:#42abf8;}
 
 /*底部*/
 
