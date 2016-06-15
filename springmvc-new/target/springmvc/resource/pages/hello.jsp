@@ -156,17 +156,23 @@
           //  alert("success");
 
                 //登录成功,缓存cookie
-                 setCookie("username",data.loginUser,"d7")
-                $('#dialogBg').fadeOut(200,function(){
-                    $('#dialog').addClass('bounceOutUp').fadeOut();
-                });
-            //    alert("username"+data.loginUser);
-                //先移除左边div 重新添加登录后用户div
-                var my = document.getElementById("needlogindiv");
-                if (my != null) {
-                    my.parentNode.removeChild(my);
-                    //添加用户资料div
-                    adduserdiv(data.loginUser);
+                if (data.success==1) {//1成功
+                    setCookie("username", data.loginUser, "d7")
+                    $('#dialogBg').fadeOut(200, function () {
+                        $('#dialog').addClass('bounceOutUp').fadeOut();
+                    });
+                    //    alert("username"+data.loginUser);
+                    //先移除左边div 重新添加登录后用户div
+                    var my = document.getElementById("needlogindiv");
+                    if (my != null) {
+                        my.parentNode.removeChild(my);
+                        //添加用户资料div
+                        adduserdiv(data.loginUser);
+                    }
+                }else
+                {
+                    alert("faild");
+
                 }
             
             },
@@ -287,7 +293,8 @@
     </div>
     <form  id="editForm"  method="post">
         <ul class="editInfos">
-            <li><label color="#ff0000">帐号：<input type="text" name="username"  class="ipt" autocomplete="off"/></label></li>
+            <li><label color="#ff0000">昵称：<input type="text" name="nickname"  class="ipt" /></label></li>
+            <li><label color="#ff0000">帐号：<input type="text" name="username"  class=~"ipt"/></label></li>
             <li><label color="#ff0000">密码：<input type="password" name="password"  class="ipt" autocomplete="off"/></label></li>
         </ul>
     </form>
