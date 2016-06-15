@@ -5,21 +5,19 @@
 
 <head>
 
-    <style type="text/css">
-        .jR3DCarouselGallery,.jR3DCarouselGallery1 {
-            margin: 0 auto; /* optional - if want to center align */
-
-        }
-        </style>
     <%--必须放前面 jquery--%>
     <script type="text/javascript" charset="UTF-8" src="resource/js/jquery.min.js"></script>
     <script type="text/javascript" src="resource/js/jquery.form.js"></script>
     <script type="text/javascript" src="resource/js/cookie.js"></script>
+        <%--<script type="text/javascript" src="resource/js/jquery.js"></script>--%>
+        <script type="text/javascript" src="resource/js/main.js"></script>
 
     <link rel="stylesheet" type="text/css" href="resource/css/thems.css">
         <link rel="stylesheet" type="text/css" href="resource/css/button.css">
         <link rel="stylesheet" type="text/css" href="resource/css/common.css"/>
-    <title>个人主页</title>
+        <link rel="stylesheet" type="text/css" href="resource/css/style.css"/>
+
+        <title>个人主页</title>
     <link rel="shortcut icon" href="resource/img/fluidicon.png">
 
 </head>
@@ -251,7 +249,33 @@
 
 </div>
 
-
+<div class="slide-main" id="touchMain">
+    <a class="prev" href="javascript:;" stat="prev1001"><img src="resource/img/images/l-btn.png" /></a>
+    <div class="slide-box" id="slideContent">
+        <div class="slide" id="bgstylec">
+            <a stat="sslink-3" href="" target="_blank">
+                <div class="obj-e"><img src="resource/img/images/dm3.jpg" /></div>
+                <div class="obj-f"><img src="resource/img/images/dm3-c.png" /></div>
+            </a>
+        </div>
+        <div class="slide" id="bgstylea">
+            <a stat="sslink-1" href="" target="_blank">
+                <div class="obj-a"><img src="resource/img/images/dm1.png" /></div>
+                <div class="obj-b"><img src="resource/img/images/dm1-c.png" /></div>
+            </a>
+        </div>
+        <div class="slide" id="bgstyleb">
+            <a stat="sslink-2" href="" target="_blank">
+                <div class="obj-c"><img src="resource/img/images/dm2.png" /></div>
+                <div class="obj-d"><img src="resource/img/images/dm2-c.png" /></div>
+            </a>
+        </div>
+    </div>
+    <a class="next" href="javascript:;" stat="next1002"><img src="resource/img/images/r-btn.png" /></a>
+    <div class="item">
+        <a class="cur" stat="item1001" href="javascript:;"></a><a href="javascript:;" stat="item1002"></a><a href="javascript:;" stat="item1003"></a>
+    </div>
+</div>
 
 
 <%--弹出登录狂视图--%>
