@@ -16,5 +16,10 @@ public class MainController {
         System.out.println("makeup~~");
         return "hello";
     }
-
+    @RequestMapping (value = "/register", method = RequestMethod.GET)
+    public  String register()
+    {
+        System.out.println("makeup~~");
+        return "register";
+    }
 }

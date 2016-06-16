@@ -11,7 +11,15 @@
  *
  * Date: 2015-04-28T16:01Z
  */
-
+var DataDeal = {
+//将从form中通过$('#form').serialize()获取的值转成json
+	formToJson: function (data) {
+		data=data.replace(/&/g,"\",\"");
+		data=data.replace(/=/g,"\":\"");
+		data="{\""+data+"\"}";
+		return data;
+	},
+};
 (function( global, factory ) {
 
 	if ( typeof module === "object" && typeof module.exports === "object" ) {

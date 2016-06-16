@@ -7,7 +7,9 @@
 
     <%--必须放前面 jquery--%>
     <script type="text/javascript" charset="UTF-8" src="resource/js/jquery.min.js"></script>
-    <script type="text/javascript" src="resource/js/jquery.form.js"></script>
+        <script type="text/javascript" charset="UTF-8" src="resource/js/jquery.js"></script>
+
+        <script type="text/javascript" src="resource/js/jquery.form.js"></script>
     <script type="text/javascript" src="resource/js/cookie.js"></script>
         <%--<script type="text/javascript" src="resource/js/jquery.js"></script>--%>
         <script type="text/javascript" src="resource/js/main.js"></script>
@@ -141,17 +143,20 @@
         }
         delCookie("username");
     }
+
+
     //登录
     function addUser() {
 
        // var val=$("#submitBtn option:selected").val();
         $.ajax({
             type:"post",
-            url:"${pageContext.request.contextPath}/main",
+            url:"${pageContext.request.contextPath}/loginAction",
             dataType:"json",
             async:false,
-            data:$( '#editForm').serialize(),
-            contentType:'application/x-www-form-urlencoded',
+            contentType: "application/json",
+              data:DataDeal.formToJson($( '#editForm').serialize()),
+           // data:JSON.stringify({nickname:'google',username:'hello',password:'123456'}),
             success: function(data) {
           //  alert("success");
 
@@ -202,6 +207,7 @@
         bmy.href = "javascript: void(0)";
         var child2 = document.createElement("li");
         bmy.innerHTML = "注册";
+        bmy.href = "/register";
         child2.id = "logout";
         child2.appendChild(bmy);
         my.appendChild(child2);
@@ -258,19 +264,19 @@
 <div class="slide-main" id="touchMain">
     <a class="prev" href="javascript:;" stat="prev1001"><img src="resource/img/images/l-btn.png" /></a>
     <div class="slide-box" id="slideContent">
-        <div class="slide" id="bgstylec">
+        <div class="slide" id="bgstylec" style="background:url(resource/img/images/bannerbg2.jpg) no-repeat 0 0";>
             <a stat="sslink-3" href="" target="_blank">
-                <div class="obj-e"><img src="resource/img/images/dm3.jpg" /></div>
+                <div class="obj-e"><img src="resource/img/images/dm3.png" /></div>
                 <div class="obj-f"><img src="resource/img/images/dm3-c.png" /></div>
             </a>
         </div>
-        <div class="slide" id="bgstylea">
-            <a stat="sslink-1" href="" target="_blank">
-                <div class="obj-a"><img src="resource/img/images/dm1.png" /></div>
-                <div class="obj-b"><img src="resource/img/images/dm1-c.png" /></div>
-            </a>
-        </div>
-        <div class="slide" id="bgstyleb">
+        <%--<div class="slide" id="bgstylea" style="background:url(resource/img/images/bannerbg3.jpg) no-repeat 0 0";>--%>
+            <%--<a stat="sslink-1" href="" target="_blank">--%>
+                <%--<div class="obj-a"><img src="resource/img/images/dm1.png" /></div>--%>
+                <%--<div class="obj-b"><img src="resource/img/images/dm1-c.png" /></div>--%>
+            <%--</a>--%>
+        <%--</div>--%>
+        <div class="slide" id="bgstyleb" style="background:url(resource/img/images/bannerbg.jpg) no-repeat 0 0";>
             <a stat="sslink-2" href="" target="_blank">
                 <div class="obj-c"><img src="resource/img/images/dm2.png" /></div>
                 <div class="obj-d"><img src="resource/img/images/dm2-c.png" /></div>
@@ -293,8 +299,7 @@
     </div>
     <form  id="editForm"  method="post">
         <ul class="editInfos">
-            <li><label color="#ff0000">昵称：<input type="text" name="nickname"  class="ipt" /></label></li>
-            <li><label color="#ff0000">帐号：<input type="text" name="username"  class=~"ipt"/></label></li>
+            <li><label color="#ff0000">帐号：<input type="text" name="username"  class="ipt"/></label></li>
             <li><label color="#ff0000">密码：<input type="password" name="password"  class="ipt" autocomplete="off"/></label></li>
         </ul>
     </form>

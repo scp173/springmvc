@@ -15,6 +15,14 @@
         <property name="prefix" value="resource/pages/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+    <bean class ="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" >
+        <property name= "messageConverters" >
+            <list>
+                <bean class = "org.springframework.http.converter.StringHttpMessageConverter"/>
+                <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
+            </list>
+        </property>
+    </bean>
 
     <!-- 配置 FreeMarkerConfigurer-->
     <context:component-scan base-package="com.springapp.mvc"/>
