@@ -13,10 +13,15 @@
     <link rel="shortcut icon" href="favicon.ico" />
     <script src="resource/js/jquery.min.js" type="text/javascript"></script>
     <script src="resource/js/jquery.form.js" type="text/javascript"></script>
+    <script src="resource/js/jquery.js" type="text/javascript"></script>
     <script src="resource/pages/loginjs/json.parse.js" type="text/javascript"></script>
+    <script src="resource/js/cookie.js" type="text/javascript"></script>
+
     <script type="text/javascript">
         $(function(){
             $(".registerbtn").click(function(){
+
+
                 var agreenMent=$("#agreement").attr("data");
 
                 //alert(agreenMent);0
@@ -63,31 +68,43 @@
                     $(".btn").val('注册').removeAttr('disabled');
                     return false;
                 }else{
-
-                    var ajax_option={
+                    //登录
+                    $.ajax({
                         type:"post",
                         url:"${pageContext.request.contextPath}/registerAction",
                         dataType:"json",
                         async:false,
-                        success:function(data){
-                           // alert(data);
+                        contentType: "application/json",
+                        data:DataDeal.formToJson($( '#registerForm').serialize()),
+                        // data:JSON.stringify({nickname:'google',username:'hello',password:'123456'}),
+                        success: function(data) {
+                            //  alert("success");
+
+                            //登录成功,缓存cookie
                             if (data.success==1) {//1成功
-                                setCookie("username", data.loginUser, "d7")
+                                setCookie("username", data.username, "d7")
+                                setCookie("nickname", data.nickname, "d7")
+                                window.location = '/main';
 
                             }else
                             {
-                                alert("faild");
+
+                                alert("注册失败");
 
                             }
-                        }};
-                    $("#registerForm").ajaxSubmit(ajax_option);
-                }
 
-            })
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            alert("faild");
+
+                        }
+                })
+                }
+            });
 
             $(".change").click(function(){
                 $("#imgcode").attr('src','vercode');
-            })
+            });
 
             $('.check2').click(function(){
                 var rel = $('#agreement').attr("data");
@@ -100,7 +117,9 @@
                 $('.check2').toggleClass("check1");
             });
 
-        });
+            });
+
+
 
         function isRegisterUserName(s){
             var patrn=/^[a-zA-Z0-9]{1}([a-zA-Z0-9]|[._]){5,19}$/;
@@ -113,7 +132,6 @@
             if(!myreg.test(email)) return false;
             return true;
         }
-
     </script>
     <style>
         .input_div span{ background:#FFF;}
@@ -151,14 +169,14 @@
         <div class="div_form clear ">
             <label>常用的邮箱帐号：</label>
             <div class="input_div input_div2" >
-                <input id="mail" name="useremail"  type="text" placeholder="请填写正确的邮箱，以便接收账号激活邮件" maxlength="64">
+                <input id="mail" name="email"  type="text" placeholder="请填写正确的邮箱，以便接收账号激活邮件" maxlength="64">
                 <span></span>
             </div>
         </div>
         <div class="div_form clear ">
             <label>请创建一个密码：</label>
             <div class="input_div input_div3">
-                <input id="password1" name="userpass" type="password" placeholder="最少 8 个字符，区分大小写" maxlength="32">
+                <input id="password1" name="password" type="password" placeholder="最少 8 个字符，区分大小写" maxlength="32">
                 <span></span>
             </div>
         </div>

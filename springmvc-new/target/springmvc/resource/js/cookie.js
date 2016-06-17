@@ -17,7 +17,6 @@ function setCookie(name,value,time)
 }
 function getsec(str)
 {
-    alert("cookie有效期:"+str);
     var str1=str.substring(1,str.length)*1;
     var str2=str.substring(0,1);
     if (str2=="s")

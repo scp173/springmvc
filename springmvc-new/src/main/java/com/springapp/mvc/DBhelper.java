@@ -48,7 +48,7 @@ public class DBhelper
             sqlstr.delete(sqlstr.length()-1,sqlstr.length());
             sqlstr.append(") values(");
             for (String value : map.values()) {
-                sqlstr.append(value+",");
+                sqlstr.append("'"+value+"',");
             }
             sqlstr.delete(sqlstr.length()-1,sqlstr.length());
             sqlstr.append(")");
@@ -71,7 +71,7 @@ public class DBhelper
 
     }
     //查询
-    public int findsqlWithJsonstr(String jsonstr,String table)
+    public ResultSet findsqlWithJsonstr(String jsonstr,String table)
     {
 
         ObjectMapper mapper = new ObjectMapper();
@@ -80,25 +80,26 @@ public class DBhelper
 
             StringBuilder sqlstr = new StringBuilder("select * from "+table+" where ");
             for (String key : map.keySet()) {
-                sqlstr.append(key+"="+map.get(key)+" and ");
+                sqlstr.append(key+" = "+"'"+map.get(key)+"' and ");
             }
             sqlstr.delete(sqlstr.length()-4,sqlstr.length());
            // pst = conn.prepareStatement(sqlstr.toString());//准备执行语句
             ResultSet rs = pst.executeQuery(sqlstr.toString());
-
             if (rs.next())
             {
                 System.out.print("有数据");
+              String str =   rs.getString("nickname");
+                return rs;
             }
-//            this.conn.prepareStatement.close();
-//        this.conn.close();
-            return 0;
+            else
+                return null;
+
         } catch (IOException e) {
             e.printStackTrace();
-            return 0;
+            return null;
         } catch (SQLException e) {
             e.printStackTrace();
-            return 0;
+            return null;
 
         }
 

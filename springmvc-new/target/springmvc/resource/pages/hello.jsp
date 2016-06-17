@@ -112,7 +112,7 @@
     <%--})--%>
     //检查用户是否登录
     function checkCookie() {
-        var cookie = getCookie("username");
+        var cookie = getCookie("nickname");
         if (cookie!=null)
         {
             //已存在
@@ -142,6 +142,8 @@
             addneedlogindiv();
         }
         delCookie("username");
+        delCookie("nickname");
+
     }
 
 
@@ -162,7 +164,8 @@
 
                 //登录成功,缓存cookie
                 if (data.success==1) {//1成功
-                    setCookie("username", data.loginUser, "d7")
+                    setCookie("username", data.username, "d7")
+                    setCookie("nickname", data.nickname, "d7")
                     $('#dialogBg').fadeOut(200, function () {
                         $('#dialog').addClass('bounceOutUp').fadeOut();
                     });
@@ -172,11 +175,11 @@
                     if (my != null) {
                         my.parentNode.removeChild(my);
                         //添加用户资料div
-                        adduserdiv(data.loginUser);
+                        adduserdiv(data.nickname);
                     }
                 }else
                 {
-                    alert("faild");
+                    alert("登录失败");
 
                 }
             
